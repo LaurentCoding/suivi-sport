@@ -1,6 +1,6 @@
 <?php
 
-class WalkController
+class EnregistremntSportController
 {
   private PDO $db;
 
@@ -23,17 +23,17 @@ class WalkController
   //Recup tous
   public function getAll(): array
   {
-    $walks = [];
-    $req = $this->pdo->query("SELECT * FROM `walk`");
+    $activites = [];
+    $req = $this->pdo->query("SELECT * FROM `suivi`");
     $data = $req->fetchAll();
-    foreach ($data as $walk){
-      $walks[] = new Walk($walk);
+    foreach ($data as $activite){
+      $activites[] = new Walk($activite);
     }
-    return $walks;
+    return $activites;
   }
 
   //renvoie une seule date
-  public function get(int $id): Walk
+ /*  public function get(int $id): Walk
   {
       $req = $this->pdo->prepare("SELECT * FROM `walk` WHERE id = :id");
       $req->bindParam(":id", $id, PDO::PARAM_INT);
@@ -41,7 +41,7 @@ class WalkController
       $data = $req->fetch();
       $walk = new Walk($data);
       return $walk;
-  }
+  } */
 
   public function create(Walk $newWalk): void
   {

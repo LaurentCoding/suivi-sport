@@ -1,8 +1,8 @@
 <?php
 
-class WalkController
+class AnneeController
 {
-  private PDO $db;
+  private PDO $pdo;
 
   public function __construct()
   {
@@ -10,7 +10,7 @@ class WalkController
       (new DotEnv(__DIR__ . '/../.env'))->load();
       $this->setPdo(new PDO(getenv('DATABASE_DNS'), getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD')));
     } catch (PDOException $error) {
-      var_dump($error);
+      //var_dump($error);
       echo "<p style='color: red'>$error</p>";
     }
   }
@@ -20,40 +20,41 @@ class WalkController
     $this->pdo = $pdo;
     return $this;
   }
-  //Recup tous
+  //Recupére toutes les années
   public function getAll(): array
   {
-    $walks = [];
-    $req = $this->pdo->query("SELECT * FROM `walk`");
+    $annees = [];
+    $req = $this->pdo->query("SELECT * FROM `annee`");
     $data = $req->fetchAll();
-    foreach ($data as $walk){
-      $walks[] = new Walk($walk);
+    var_dump($data);
+    foreach ($data as $annee){
+      $annees[] = new Annee($annee);
     }
-    return $walks;
+    return $annees;
   }
 
-  //renvoie une seule date
-  public function get(int $id): Walk
+  //renvoie une seule annee
+  public function get(int $id): Annee
   {
-      $req = $this->pdo->prepare("SELECT * FROM `walk` WHERE id = :id");
+      $req = $this->pdo->prepare("SELECT * FROM `annee` WHERE id = :id");
       $req->bindParam(":id", $id, PDO::PARAM_INT);
       $req->execute();
       $data = $req->fetch();
-      $walk = new Walk($data);
-      return $walk;
-  }
+      $annee = new Annee($data);
+      return $annee;
+  } 
 
-  public function create(Walk $newWalk): void
+  public function create(Annee $newAnnee)//:void
   {
     //code...
   }
 
-  public function update(Walk $walk): void
+  public function update(Annee $annee)//:void
   {
     //code...
   }
 
-  public function delete(Walk $walk): void
+  public function delete(Annee $annee)//://void
   {
     //code...
   }

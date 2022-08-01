@@ -23,7 +23,7 @@ class UserController
 
     public function getAll(): array
     {
-        $categories = [];
+        $users = [];
         $req = $this->pdo->query("SELECT * FROM `user`");
         $data = $req->fetchAll();
         foreach ($data as $user) {

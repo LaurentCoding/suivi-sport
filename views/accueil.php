@@ -7,7 +7,7 @@ require_once './commun/nav.php';
   <?= $_SESSION && $_SESSION['username'] ? "<span>Bienvenue {$_SESSION["username"]}</span>" : ""; ?>
 </h1>
 <section>
-  Choix des enregistrement de plusieurs dicipline
+
 </section>
 
 

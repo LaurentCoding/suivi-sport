@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once './commun/head.php';
-require_once './commun/nav.php';
+require_once './commun/navSuivi.php';
 ?>
 
 <div class="container">

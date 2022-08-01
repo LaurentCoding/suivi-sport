@@ -4,7 +4,8 @@ class Walk
 {
   private int $id;
   private int $pas;
-  private string $release_date;
+  private string $date_walk;
+  private int $annee_id;
 
     // Constructeur
     public function __construct(array $data)
@@ -63,25 +64,44 @@ class Walk
     return $this;
   }
 
- 
-
   /**
-   * Get the value of release_date
+   * Get the value of date_walk
    */ 
-  public function getRelease_date()
+  public function getDate_walk()
   {
-    return $this->release_date;
+    return $this->date_walk;
   }
 
   /**
-   * Set the value of release_date
+   * Set the value of date_walk
    *
    * @return  self
    */ 
-  public function setRelease_date($release_date)
+  public function setDate_walk($date_walk)
   {
-    $this->release_date = $release_date;
+    $this->date_walk = $date_walk;
 
+    return $this;
+  }
+
+  /**
+   * Get the value of annee_id
+   */ 
+  public function getAnnee_id()
+  {
+    return $this->annee_id;
+  }
+
+  /**
+   * Set the value of annee_id
+   *
+   * @return  self
+   */ 
+  public function setAnnee_id($annee_id)
+  {
+    if($annee_id > 0){
+    $this->annee_id = $annee_id;
+    }
     return $this;
   }
 }
