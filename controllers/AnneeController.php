@@ -26,7 +26,7 @@ class AnneeController
     $annees = [];
     $req = $this->pdo->query("SELECT * FROM `annee`");
     $data = $req->fetchAll();
-    var_dump($data);
+    //var_dump($data);
     foreach ($data as $annee){
       $annees[] = new Annee($annee);
     }
@@ -46,7 +46,9 @@ class AnneeController
 
   public function create(Annee $newAnnee)//:void
   {
-    //code...
+    $req = $this->pdo->prepare("INSERT INTO `annee` (annee_date) VALUES (:annee_date)");
+    $req->bindParam(":annee_date", $newAnnee->getAnnee_date(), PDO::PARAM_INT);
+    $req->execute();
   }
 
   public function update(Annee $annee)//:void
@@ -54,9 +56,12 @@ class AnneeController
     //code...
   }
 
-  public function delete(Annee $annee)//://void
+  public function delete(int $id):void
   {
-    //code...
+    $req = $this->pdo->prepare("DELETE FROM `annee` WHERE id = :id");
+    $req->bindParam('id', $id, PDO::PARAM_INT);
+    $req->execute();
+
   }
 
 
