@@ -1,6 +1,6 @@
 <?php
 
-class Suivi
+class EnregistrementSport
 {
   private int $id;
   private int $annee_id;

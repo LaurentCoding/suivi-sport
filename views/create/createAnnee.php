@@ -3,8 +3,8 @@
 require_once '../commun/head.php';
 require_once '../commun/navEnregistrement.php';
 
-require_once '../../models/Annee.php';
-require_once '../../controllers/AnneeController.php';
+//require_once '../../models/Annee.php';
+//require_once '../../controllers/AnneeController.php';
 
 function loadClass(string $class)
 {
@@ -18,29 +18,22 @@ function loadClass(string $class)
 }
 
 spl_autoload_register("loadClass");
+if($_POST){
+    $anneeController = new AnneeController;
+    $newAnnee = new Annee($_POST);
+    $anneeController->create($newAnnee);
+    echo "<script>window.location='../accueil.php'</script>";
+}
 
-$anneeController = new AnneeController;
-$annees = $anneeController->getAll();
-var_dump($annees);
 ?>
 
 <section class="container d-flex flex-column justify-content-center">
-<h3>Publier une année</h3>
-<?php
-foreach($annees as $annee) :
-   ?>
- 
-      <h2><?= $annee->getAnnee_Date() ?></h2>
-<?php 
-
-endforeach 
-?>
-
-  <form class="container-fluid w-50" method="POST">
-        <label for="annee">Année</label>
-        <input type="number" name="annee" id="annee" placeholder="Année de référence" class="form-control">
+<h3>Créer une année</h3>
+    <form class="container-fluid w-50" method="POST">
+        <label for="annee_date">Année</label>
+        <input type="number" name="annee_date" id="annee_date" placeholder="Année de référence" class="form-control">
         <input type="submit" value="Enregistrer" class="btn btn-primary mt-3">
-        </form>
+    </form>
 </section>
 
 

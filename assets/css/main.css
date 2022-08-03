@@ -10,3 +10,11 @@ body {
 .accueil {
     background-color: chartreuse;
 }
+
+.pas{
+    background-color: brown;
+}
+
+a{
+    text-decoration: none;
+}

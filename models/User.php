@@ -7,6 +7,7 @@ class User
     private string $username;
     private string $email;
     private string $password;
+    private string $avatar;
 
     // Constructeur
     public function __construct(array $data)
@@ -68,6 +69,26 @@ class User
     public function setPassword(string $password)
     {
         $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * Get the value of avatar
+     */ 
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Set the value of avatar
+     *
+     * @return  self
+     */ 
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
         return $this;
     }
 }

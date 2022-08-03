@@ -16,6 +16,7 @@ class Annee
     {
         foreach ($data as $key => $value) {
             $method = "set" . ucfirst($key);
+            //var_dump($method);
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }

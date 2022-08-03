@@ -1,6 +1,6 @@
 <?php
 
-class EnregistremntSportController
+class EnregistrementSportController
 {
   private PDO $db;
 
@@ -27,33 +27,41 @@ class EnregistremntSportController
     $req = $this->pdo->query("SELECT * FROM `suivi`");
     $data = $req->fetchAll();
     foreach ($data as $activite){
-      $activites[] = new Walk($activite);
+      $activites[] = new EnregistrementSport($activite);
     }
     return $activites;
   }
 
   //renvoie une seule date
- /*  public function get(int $id): Walk
+  public function get(int $id): EnregistrementSport
   {
-      $req = $this->pdo->prepare("SELECT * FROM `walk` WHERE id = :id");
+      $req = $this->pdo->prepare("SELECT * FROM `suivi` WHERE id = :id");
       $req->bindParam(":id", $id, PDO::PARAM_INT);
       $req->execute();
       $data = $req->fetch();
-      $walk = new Walk($data);
-      return $walk;
-  } */
+      $enregistrementSport = new EnregistrementSport($data);
+      return $enregistrementSport;
+  } 
 
-  public function create(Walk $newWalk): void
+  public function create(EnregistrementSport $newEnregistrementSport): void
+  {
+    $req = $this->pdo->prepare("INSERT INTO `suivi` (annee_id, sport_id, jour, duree, km) VALUE (:annee_id, :sport_id, :jour, :duree, :km)");
+    $req->bindValue(":annee_id", $newEnregistrementSport->getAnnee_id(), PDO::PARAM_INT);
+    $req->bindValue(":sport_id", $newEnregistrementSport->getSport_id(), PDO::PARAM_INT);
+    $req->bindValue(":jour", $newEnregistrementSport->getJour(), PDO::PARAM_STR);
+    $req->bindValue(":duree", $newEnregistrementSport->getDuree(), PDO::PARAM_STR);
+    $req->bindValue(":km", $newEnregistrementSport->getKm(), PDO::PARAM_STR);
+
+    $req->execute();
+
+  }
+
+  public function update(EnregistrementSport $walk): void
   {
     //code...
   }
 
-  public function update(Walk $walk): void
-  {
-    //code...
-  }
-
-  public function delete(Walk $walk): void
+  public function delete(EnregistrementSport $walk): void
   {
     //code...
   }

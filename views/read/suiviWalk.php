@@ -3,8 +3,6 @@ session_start();
 require_once '../commun/head.php';
 require_once '../commun/navEnregistrement.php';
 
-require_once '../../models/Walk.php';
-require_once '../../controllers/WalkController.php';
 
 function loadClass(string $class)
 {
@@ -36,6 +34,8 @@ $anneeController = new AnneeController();
       <th scope="col">Pas</th>
       <th scope="col">Date</th>
       <th scope="col">Année</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -47,6 +47,10 @@ $anneeController = new AnneeController();
       <td><?= $walk->getPas() ?> pas</td>
       <td><?= $walk->getDate_walk() ?></td>
       <td><?= $annee->getAnnee_date() ?></td>
+      <td> <a href="" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
+        <i class="fa-solid fa-pen-to-square"></i></a></td>
+      <td><a href="" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
+        <i class="fa-solid fa-trash-can"></i></a></td>
     </tr>
   
     <?php
