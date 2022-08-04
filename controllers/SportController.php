@@ -58,7 +58,7 @@ class SportController
   public function delete(int $id): void
   {
     $req = $this->pdo->prepare("DELETE FROM `sport` WHERE id = :id");
-    $req->bindParam(":id", $id, PDO::PARAM_INT);
+    $req->bindValue(":id", $id, PDO::PARAM_INT);
     $req->execute();
   }
 

@@ -25,7 +25,7 @@ $sportController = new SportController();
 
 
 
-//var_dump($sportController);
+
 ?>
 
 <section class="container d-flex flex-column justify-content-center">
@@ -64,7 +64,7 @@ $sportController = new SportController();
       <td><?= $enregistrement->getKm() ?></td>
       <td> <a href="" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
         <i class="fa-solid fa-pen-to-square"></i></a></td>
-      <td><a href="" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
+      <td><a href="../delete/suppressionEnregistrementSport.php?id=<?= $enregistrement->getId() ?>"  class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
         <i class="fa-solid fa-trash-can"></i></a></td>
     
     </tr>

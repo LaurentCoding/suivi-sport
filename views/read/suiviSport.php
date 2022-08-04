@@ -20,7 +20,9 @@ spl_autoload_register("loadClass");
 $sportController = new SportController;
 $sports = $sportController->getAll();
 $sportController = new SportController();
+//echo "<pre>";
 //var_dump($sports);
+//echo"</pre>";
 ?>
 
 <section class="container d-flex flex-column justify-content-center">
@@ -46,7 +48,7 @@ $sportController = new SportController();
       <td><?= $sport->getName() ?></td>
       <td> <a href="" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
         <i class="fa-solid fa-pen-to-square"></i></a></td>
-      <td><a href="../delete/suppressionSport.php" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
+      <td><a href="../delete/suppressionSport.php?id=<?= $sport->getId() ?>" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
         <i class="fa-solid fa-trash-can"></i></a></td>
     </tr>
   

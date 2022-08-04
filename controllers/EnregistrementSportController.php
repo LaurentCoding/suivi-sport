@@ -61,9 +61,11 @@ class EnregistrementSportController
     //code...
   }
 
-  public function delete(EnregistrementSport $walk): void
+  public function delete(int $id): void
   {
-    //code...
+    $req = $this->pdo->prepare("DELETE FROM `suivi` WHERE id = :id");
+    $req->bindParam(":id", $id, PDO::PARAM_INT);
+    $req->execute();
   }
 
 

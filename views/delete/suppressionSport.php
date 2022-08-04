@@ -12,12 +12,6 @@ function loadClass(string $class)
 
 spl_autoload_register("loadClass");
 
-//$sportController = new SportController();
-//var_dump($sportController);
-//$sportController->delete($_GET["id"]);
-//echo "<script>window.location='../accueil.php'</script>";
-
-
   $sportController = new SportController;
   $sportController->delete($_GET['id']);
   echo "<script>window.location='../accueil.php'</script>";

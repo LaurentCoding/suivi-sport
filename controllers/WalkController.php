@@ -58,9 +58,11 @@ class WalkController
     //code...
   }
 
-  public function delete(Walk $walk): void
+  public function delete(int $id): void
   {
-    //code...
+    $req = $this->pdo->prepare("DELETE FROM `walk` WHERE id = :id");
+    $req->bindParam(":id", $id, PDO::PARAM_INT);
+    $req->execute();
   }
 
 

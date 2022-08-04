@@ -49,7 +49,7 @@ $anneeController = new AnneeController();
       <td><?= $annee->getAnnee_date() ?></td>
       <td> <a href="" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
         <i class="fa-solid fa-pen-to-square"></i></a></td>
-      <td><a href="" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
+      <td><a href="../delete/suppressionWalk.php?id=<?= $walk->getId() ?>"  class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
         <i class="fa-solid fa-trash-can"></i></a></td>
     </tr>
   
