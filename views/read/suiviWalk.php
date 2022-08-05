@@ -20,6 +20,7 @@ spl_autoload_register("loadClass");
 $walkController = new WalkController;
 $walks = $walkController->getAll();
 $anneeController = new AnneeController();
+$monthController = new MonthController();
 //var_dump($walks);
 ?>
 
@@ -32,8 +33,9 @@ $anneeController = new AnneeController();
     <tr>
       
       <th scope="col">Pas</th>
-      <th scope="col">Date</th>
       <th scope="col">Année</th>
+      <th scope="col">Mois</th>
+      <th scope="col">Date</th>
       <th scope="col">Modifier</th>
       <th scope="col">Delete</th>
     </tr>
@@ -41,13 +43,17 @@ $anneeController = new AnneeController();
   <tbody>
   <?php 
         foreach ($walks as $walk) : 
-        $annee = $anneeController->get($walk->getAnnee_id());?>
+        $annee = $anneeController->get($walk->getAnnee_id());
+        $releaseDate = new DateTime($walk->getDate_walk());
+        $mois = $monthController->get($walk->getMonth_id());
+        ?>
     <tr>
       
       <td><?= $walk->getPas() ?> pas</td>
-      <td><?= $walk->getDate_walk() ?></td>
       <td><?= $annee->getAnnee_date() ?></td>
-      <td> <a href="" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
+      <td><?= $mois->getName() ?></td>
+      <td><?=  $releaseDate->format('d')?></td>
+      <td> <a href="../update/modificationWalk.php?id=<?= $walk->getId() ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
         <i class="fa-solid fa-pen-to-square"></i></a></td>
       <td><a href="../delete/suppressionWalk.php?id=<?= $walk->getId() ?>"  class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">
         <i class="fa-solid fa-trash-can"></i></a></td>

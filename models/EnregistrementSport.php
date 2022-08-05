@@ -8,6 +8,7 @@ class EnregistrementSport
   private string $jour;
   private string $duree;
   private int $km;
+  private int $month_id;
 
   // Constructeur
   public function __construct(array $data)
@@ -142,6 +143,26 @@ class EnregistrementSport
   public function setKm($km)
   {
     $this->km = $km;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of month_id
+   */ 
+  public function getMonth_id()
+  {
+    return $this->month_id;
+  }
+
+  /**
+   * Set the value of month_id
+   *
+   * @return  self
+   */ 
+  public function setMonth_id($month_id)
+  {
+    $this->month_id = $month_id;
 
     return $this;
   }

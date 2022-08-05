@@ -19,6 +19,8 @@ function loadClass(string $class)
 spl_autoload_register("loadClass");
 $anneeController = new AnneeController();
 $annees = $anneeController->getAll();
+$monthController = new MonthController();
+$mois = $monthController->getAll();
 
 if($_POST){
     $walkController = new WalkController;
@@ -36,6 +38,16 @@ if($_POST){
                 <input type="int" class="form-control" name="pas" id="pas" placeholder="Nombre de pas" required>
                 <label for="date_walk">Date</label>
                 <input type="date" name="date_walk" id="date_walk" class="form-control">
+
+                <label for="month_id">Mois</label>
+        <select name="month_id" id="month_id" class="form-select">
+        <option value="" selected>-- Sélectionnez un mois --</option> 
+        <?php
+                foreach ($mois as $month) : ?>
+                    <option value="<?= $month->getId() ?>"><?= $month->getName() ?></option>
+                <?php endforeach ?>
+        </select> 
+
                 <label for="annee_id">Année</label>
         <select name="annee_id" id="annee_id" class="form-select">
         <option value="" selected>-- Sélectionnez une année --</option> 

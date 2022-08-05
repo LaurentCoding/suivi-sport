@@ -6,6 +6,7 @@ class Walk
   private int $pas;
   private string $date_walk;
   private int $annee_id;
+  private int $month_id;
 
     // Constructeur
     public function __construct(array $data)
@@ -102,6 +103,26 @@ class Walk
     if($annee_id > 0){
     $this->annee_id = $annee_id;
     }
+    return $this;
+  }
+
+  /**
+   * Get the value of month_id
+   */ 
+  public function getMonth_id()
+  {
+    return $this->month_id;
+  }
+
+  /**
+   * Set the value of month_id
+   *
+   * @return  self
+   */ 
+  public function setMonth_id($month_id)
+  {
+    $this->month_id = $month_id;
+
     return $this;
   }
 }

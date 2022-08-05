@@ -21,12 +21,11 @@ if($_POST){
     $sportController->create($newSport);
     echo "<script>window.location='../accueil.php'</script>";
 }
-
 ?>
 
 <section class="container d-flex flex-column justify-content-center">
 <h3>Créer un sport</h3>
-    <form class="container-fluid w-50" method="POST">
+    <form class="container-fluid w-50"  method="POST">
         <label for="name">Sport</label>
         <input type="text" name="name" id="name" placeholder="Sport de référence" class="form-control">
         <input type="submit" value="Enregistrer" class="btn btn-primary mt-3">

@@ -39,7 +39,6 @@ class SportController
       $req->bindParam(":id", $id, PDO::PARAM_INT);
       $req->execute();
       $data = $req->fetch();
-      //var_dump($data);
       $sport = new Sport($data);
       return $sport;
   }
