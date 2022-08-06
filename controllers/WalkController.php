@@ -45,7 +45,7 @@ class WalkController
 
   public function create(Walk $newWalk): void
   {
-      $req = $this->pdo->prepare("INSERT INTO `walk` (pas, date_walk, annee_id, month_id) VALUES (:pas, :date_walk, :annee_id, :month_id)");
+    $req = $this->pdo->prepare("INSERT INTO `walk` (pas, date_walk, annee_id, month_id) VALUES (:pas, :date_walk, :annee_id, :month_id)");
       $req->bindValue(":pas", $newWalk->getPas(), PDO::PARAM_INT);
       $req->bindValue(":date_walk", $newWalk->getDate_walk(), PDO::PARAM_STR);
       $req->bindValue(":annee_id", $newWalk->getAnnee_id(), PDO::PARAM_INT);

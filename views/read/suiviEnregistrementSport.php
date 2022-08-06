@@ -33,14 +33,14 @@ $monthController = new MonthController();
         <h4>Suivi des enregistrement quotidient</h4>
         
             <div class="container">
-<table class="table">
+<table class="table table-dark table-hover">
   <thead>
     <tr>
       
-      <th scope="col">Année</th>
-      <th scope="col">Mois</th>
-      <th scope="col">Jour</th>
       <th scope="col">Sport</th>
+      <th scope="col">Jour</th>
+      <th scope="col">Mois</th>
+      <th scope="col">Année</th>
       <th scope="col">Durée</th>
       <th scope="col">km</th>
       <th scope="col">Modifier</th>
@@ -59,11 +59,10 @@ $monthController = new MonthController();
         ?>
     <tr>
       
-      
+      <td><?= $sport->getName() ?></td>
+      <td><?= $releaseDate->format('d') ?></td>
       <td><?= $annee->getAnnee_date() ?></td>
       <td><?= $mois->getName() ?></td>
-      <td><?= $releaseDate->format('d') ?></td>
-      <td><?= $sport->getName() ?></td>
       <td><?= $enregistrement->getDuree() ?></td>
       <td><?= $enregistrement->getKm() ?></td>
       <td><a href="../update/modificationEnregistrementSport.php?id=<?= $enregistrement->getId() ?>"  class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">

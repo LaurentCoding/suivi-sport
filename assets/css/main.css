@@ -4,11 +4,20 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    background-color: cadetblue;
+    background-color: rgb(131, 165, 246);
+}
+
+h1 {
+    font-size: 5rem;
+    color: White;
 }
 
 .accueil {
     background-color: chartreuse;
+}
+
+.connexion {
+    background-color: chocolate;
 }
 
 .pas{

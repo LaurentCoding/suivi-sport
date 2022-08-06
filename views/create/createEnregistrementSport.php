@@ -35,11 +35,11 @@ if($_POST){
 
 <section class="container d-flex flex-column justify-content-center">
 <h3>Publier une journée</h3>
-        <form class="container-fluid w-50" method="POST">
+        <form class="container-fluid w-50" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <label for="jour">Jour</label>
         <input type="date" name="jour" id="jour" placeholder="Jour" class="form-control">
         <label for="km">km</label>
-        <input type="text" name="km" id="km" placeholder="Nombre de KM" class="form-control">
+        <input type="km" name="km" id="km" placeholder="Nombre de KM" class="form-control">
         <label for="duree">Durée</label>
         <input type="text" name="duree" id="duree" placeholder="Temps de la sortie 00h00" class="form-control">
         <label for="annee_id">Année</label>

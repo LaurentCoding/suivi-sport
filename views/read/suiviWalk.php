@@ -21,21 +21,23 @@ $walkController = new WalkController;
 $walks = $walkController->getAll();
 $anneeController = new AnneeController();
 $monthController = new MonthController();
+
 //var_dump($walks);
+
 ?>
 
 <section class="container d-flex flex-column justify-content-center">
         <h4>Suivi des pas</h4>
         
             <div class="container">
-<table class="table">
+<table class="table table-dark table-hover">
   <thead>
     <tr>
       
       <th scope="col">Pas</th>
-      <th scope="col">Année</th>
-      <th scope="col">Mois</th>
       <th scope="col">Date</th>
+      <th scope="col">Mois</th>
+      <th scope="col">Année</th>
       <th scope="col">Modifier</th>
       <th scope="col">Delete</th>
     </tr>
@@ -50,9 +52,9 @@ $monthController = new MonthController();
     <tr>
       
       <td><?= $walk->getPas() ?> pas</td>
-      <td><?= $annee->getAnnee_date() ?></td>
-      <td><?= $mois->getName() ?></td>
       <td><?=  $releaseDate->format('d')?></td>
+      <td><?= $mois->getName() ?></td>
+      <td><?= $annee->getAnnee_date() ?></td>
       <td> <a href="../update/modificationWalk.php?id=<?= $walk->getId() ?>" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Modifier">
         <i class="fa-solid fa-pen-to-square"></i></a></td>
       <td><a href="../delete/suppressionWalk.php?id=<?= $walk->getId() ?>"  class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Supprimer">

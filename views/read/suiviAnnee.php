@@ -31,7 +31,7 @@ $anneeController = new AnneeController();
   <thead>
     <tr>
       
-      <th scope="col">Années enregistrés en base de donnée</th>
+      <th scope="col">Années enregistrées en base de donnée</th>
       <th scope="col">Modifier</th>
       <th scope="col">Delete</th>
     </tr>

@@ -3,7 +3,7 @@ session_start();
 require_once './head.php';
 require_once './navEnregistrement.php';
 ?>
-<section class="container mt-5">
+<section class="accueil container mt-5">
 
   <div class="d-flex">
     <div class="card w-50 m-5">

@@ -28,17 +28,21 @@ if ($_POST) {
 }
 ?>
     
-        <section class="container d-flex flex-column justify-content-center">
-        <h4>Connexion</h4>
+        <section class="container">
+        <h4 class="mt-5">Connexion</h4>
+        <div class="mt-5">
             <form method="post" class="w-50 mx-auto">
+                <div class="mt-5">
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Nom d'utilisateur" required>
+                </div>
+                <div class="mt-3">
                 <label for="password">Mot de passe</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Votre mot de passe" required>
-                
-
-                <input type="submit" class="btn btn-primary my-3" value="Se connecter">
+                </div>            
+                <input type="submit" class="btn btn-primary mt-5" value="Se connecter">
             </form>
+            </div>
         </section>
 
 <?php
